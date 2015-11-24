@@ -1,4 +1,4 @@
-Kurounin:PaginationBlaze
+Kurounin:Pagination-Blaze
 =================
 
 This package provides a bootstrap 3 paginator Blaze template to be used with the [kurounin:pagination](https://atmospherejs.com/kurounin/pagination) package.
