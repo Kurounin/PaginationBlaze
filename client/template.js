@@ -1,11 +1,19 @@
 Template.defaultBootstrapPaginator.created = function(){
     var self = this;
 
-    this.displayedPages = new ReactiveVar([]);
-
     if (!this.data.pagination) {
         return;
     }
+
+    this.displayedPages = new ReactiveVar([]);
+
+    this.runOnClick = function(e, clickedPage) {
+        if (typeof self.data.onClick === 'function') {
+            self.data.onClick(e, self, clickedPage);
+        } else {
+            e.preventDefault();
+        }
+    };
 
     //auto slice displayedPages to fit in one line
     this.autorun(function(){
@@ -67,21 +75,28 @@ Template.defaultBootstrapPaginator.helpers({
 
 Template.defaultBootstrapPaginator.events({
     'click .page-link': function(e, templateInstance){
+        templateInstance.runOnClick(e, this.valueOf());
         templateInstance.data.pagination.currentPage(this.valueOf());
     },
     'click .previous-page': function(e, templateInstance){
+        templateInstance.runOnClick(e, templateInstance.data.pagination.currentPage() - 1);
         templateInstance.data.pagination.currentPage(templateInstance.data.pagination.currentPage() - 1);
     },
     'click .next-page': function(e, templateInstance){
+        templateInstance.runOnClick(e, templateInstance.data.pagination.currentPage() + 1);
         templateInstance.data.pagination.currentPage(templateInstance.data.pagination.currentPage() + 1);
     },
     'click .show-prev': function(e, templateInstance){
+		e.preventDefault();
+
         var displayedPages = templateInstance.displayedPages.get(),
             min = Math.max(1, displayedPages[0] - templateInstance.data.limit);
 
         templateInstance.displayedPages.set(getIntArray(min, min + templateInstance.data.limit));
     },
     'click .show-next': function(e, templateInstance){
+		e.preventDefault();
+
         var pageCount = templateInstance.data.pagination.totalPages(),
             displayedPages = templateInstance.displayedPages.get(),
             min = Math.min(pageCount - templateInstance.data.limit, displayedPages[displayedPages.length - 1]) + 1;
