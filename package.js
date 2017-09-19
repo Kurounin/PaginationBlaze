@@ -10,7 +10,7 @@ Package.onUse(function (api) {
     api.use([
         "meteor-base",
         "underscore",
-        "kurounin:pagination@1.0.10"
+        "kurounin:pagination@1.0.24"
     ]);
 
     api.use([
