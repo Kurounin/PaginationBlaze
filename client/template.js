@@ -47,6 +47,12 @@ Template.defaultBootstrapPaginator.helpers({
     hasPages: function () {
         return this.pagination && this.pagination.totalPages() > 1 && this.limit;
     },
+    getPaginationClass: function () {
+        return this.paginationClass || "pagination";
+    },
+    shouldWrapLinks: function () {
+        return this.wrapLinks !== false;
+    },
     isActive : function(){
         return this.valueOf() == Template.instance().data.pagination.currentPage();
     },

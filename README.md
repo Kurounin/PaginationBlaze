@@ -28,4 +28,7 @@ Available template parameters are:
 * `pagination`: pagination instance
 * `limit`: the maximum number of page links to display
 * `containerClass`: optional container class for the paginator
+* `paginationClass`: optional class for the *ul* element (defaults to `pagination`)
+* `itemClass`: optional class for the page links elements
+* `wrapLinks`: if set to true page links will be wrapped in *li* elements (defaults to `true`)
 * `onClick`: optional callback to be called when page link is clicked (default callback runs `e.preventDefault()`)
