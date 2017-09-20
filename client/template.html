@@ -3,69 +3,69 @@
         {{#if hasPages}}
             <ul class="{{getPaginationClass}}">
                 {{#if shouldWrapLinks}}
-                <li class="{{#if isInFirstPage}}disabled{{/if}} {{itemClass}}">
-                {{/if}}
-                    <a href="#" class="previous-page {{#unless shouldWrapLinks}}{{#if isInFirstPage}}disabled{{/if}} {{itemClass}}{{/unless}}" title="Previous page"> &lt; </a>
-                {{#if shouldWrapLinks}}
-                </li>
+                    <li class="{{#if isInFirstPage}}disabled{{/if}} {{itemClass}}">
+                        <a href="#" class="previous-page" title="Previous page"> &lt; </a>
+                    </li>
+                {{else}}
+                    <a href="#" class="previous-page {{#if isInFirstPage}}disabled{{/if}} {{itemClass}}" title="Previous page"> &lt; </a>
                 {{/if}}
 
                 {{#if arePreviousPagesHidden}}
                     {{#with 1}}
                         {{#if shouldWrapLinks}}
-                        <li class="{{itemClass}}">
-                        {{/if}}
-                            <a href="#" class="page-link {{#unless shouldWrapLinks}}{{itemClass}}{{/unless}}" title="Go to page {{.}}"> {{.}} </a>
-                        {{#if shouldWrapLinks}}
-                        </li>
+                            <li class="{{itemClass}}">
+                                <a href="#" class="page-link" title="Go to page {{.}}"> {{.}} </a>
+                            </li>
+                        {{else}}
+                            <a href="#" class="page-link {{itemClass}}" title="Go to page {{.}}"> {{.}} </a>
                         {{/if}}
                     {{/with}}
 
                     {{#if shouldWrapLinks}}
-                    <li class="{{itemClass}}">
-                    {{/if}}
-                        <a href="#" class="show-prev {{#unless shouldWrapLinks}}{{itemClass}}{{/unless}}" title="Show previous pages"> ... </a>
-                    {{#if shouldWrapLinks}}
-                    </li>
+                        <li class="{{itemClass}}">
+                            <a href="#" class="show-prev" title="Show previous pages"> ... </a>
+                        </li>
+                    {{else}}
+                        <a href="#" class="show-prev {{itemClass}}" title="Show previous pages"> ... </a>
                     {{/if}}
                 {{/if}}
 
                 {{#each pagesToDisplay}}
                     {{#if shouldWrapLinks}}
-                    <li class="{{#if isActive}}active{{/if}} {{itemClass}}">
-                    {{/if}}
-                        <a href="#" class="page-link {{#unless shouldWrapLinks}}{{itemClass}}{{/unless}}" title="page {{.}}">{{.}}</a>
-                    {{#if shouldWrapLinks}}
-                    </li>
+                        <li class="{{#if isActive}}active{{/if}} {{itemClass}}">
+                            <a href="#" class="page-link" title="page {{.}}">{{.}}</a>
+                        </li>
+                    {{else}}
+                        <a href="#" class="page-link {{itemClass}}" title="page {{.}}">{{.}}</a>
                     {{/if}}
                 {{/each}}
 
                 {{#if areNextPagesHidden}}
                     {{#if shouldWrapLinks}}
-                    <li class="{{itemClass}}">
-                    {{/if}}
-                        <a href="#" class="show-next {{#unless shouldWrapLinks}}{{itemClass}}{{/unless}}" title="Show next pages"> ... </a>
-                    {{#if shouldWrapLinks}}
-                    </li>
+                        <li class="{{itemClass}}">
+                            <a href="#" class="show-next" title="Show next pages"> ... </a>
+                        </li>
+                    {{else}}
+                        <a href="#" class="show-next {{itemClass}}" title="Show next pages"> ... </a>
                     {{/if}}
 
                     {{#with lastPage}}
                         {{#if shouldWrapLinks}}
-                        <li class="{{itemClass}}">
-                        {{/if}}
-                            <a href="#" class="page-link {{#unless shouldWrapLinks}}{{itemClass}}{{/unless}}" title="Go to page {{.}}"> {{.}} </a>
-                        {{#if shouldWrapLinks}}
-                        </li>
+                            <li class="{{itemClass}}">
+                                <a href="#" class="page-link" title="Go to page {{.}}"> {{.}} </a>
+                            </li>
+                        {{else}}
+                            <a href="#" class="page-link {{itemClass}}" title="Go to page {{.}}"> {{.}} </a>
                         {{/if}}
                     {{/with}}
                 {{/if}}
 
                 {{#if shouldWrapLinks}}
-                <li class="{{#if isInLastPage}}disabled{{/if}} {{itemClass}}">
-                {{/if}}
-                    <a href="#" class="next-page {{#unless shouldWrapLinks}}{{#if isInLastPage}}disabled{{/if}} {{itemClass}}{{/unless}}" title="Next page"> &gt; </a>
-                {{#if shouldWrapLinks}}
-                </li>
+                    <li class="{{#if isInLastPage}}disabled{{/if}} {{itemClass}}">
+                        <a href="#" class="next-page" title="Next page"> &gt; </a>
+                    </li>
+                {{else}}
+                    <a href="#" class="next-page {{#if isInLastPage}}disabled{{/if}} {{itemClass}}" title="Next page"> &gt; </a>
                 {{/if}}
             </ul>
         {{/if}}
