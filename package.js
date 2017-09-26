@@ -1,7 +1,7 @@
 Package.describe({
     "name": "kurounin:pagination-blaze",
     "summary": "Blaze paginator template for kurounin:pagination package.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "git": "https://github.com/Kurounin/PaginationBlaze.git"
 });
 

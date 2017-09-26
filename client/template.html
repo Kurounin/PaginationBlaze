@@ -11,15 +11,17 @@
                 {{/if}}
 
                 {{#if arePreviousPagesHidden}}
-                    {{#with 1}}
-                        {{#if shouldWrapLinks}}
+					{{#if shouldWrapLinks}}
+						{{#with 1}}
                             <li class="{{itemClass}}">
                                 <a href="#" class="page-link" title="Go to page {{.}}"> {{.}} </a>
                             </li>
-                        {{else}}
+						{{/with}}
+					{{else}}
+						{{#with 1}}
                             <a href="#" class="page-link {{itemClass}}" title="Go to page {{.}}"> {{.}} </a>
-                        {{/if}}
-                    {{/with}}
+						{{/with}}
+					{{/if}}
 
                     {{#if shouldWrapLinks}}
                         <li class="{{itemClass}}">
@@ -30,15 +32,17 @@
                     {{/if}}
                 {{/if}}
 
-                {{#each pagesToDisplay}}
-                    {{#if shouldWrapLinks}}
+				{{#if shouldWrapLinks}}
+					{{#each pagesToDisplay}}
                         <li class="{{#if isActive}}active{{/if}} {{itemClass}}">
                             <a href="#" class="page-link" title="page {{.}}">{{.}}</a>
                         </li>
-                    {{else}}
+					{{/each}}
+				{{else}}
+					{{#each pagesToDisplay}}
                         <a href="#" class="page-link {{itemClass}}" title="page {{.}}">{{.}}</a>
-                    {{/if}}
-                {{/each}}
+					{{/each}}
+				{{/if}}
 
                 {{#if areNextPagesHidden}}
                     {{#if shouldWrapLinks}}
@@ -49,15 +53,17 @@
                         <a href="#" class="show-next {{itemClass}}" title="Show next pages"> ... </a>
                     {{/if}}
 
-                    {{#with lastPage}}
-                        {{#if shouldWrapLinks}}
+					{{#if shouldWrapLinks}}
+						{{#with lastPage}}
                             <li class="{{itemClass}}">
                                 <a href="#" class="page-link" title="Go to page {{.}}"> {{.}} </a>
                             </li>
-                        {{else}}
+						{{/with}}
+					{{else}}
+						{{#with lastPage}}
                             <a href="#" class="page-link {{itemClass}}" title="Go to page {{.}}"> {{.}} </a>
-                        {{/if}}
-                    {{/with}}
+						{{/with}}
+					{{/if}}
                 {{/if}}
 
                 {{#if shouldWrapLinks}}
