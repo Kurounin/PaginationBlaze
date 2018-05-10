@@ -1,7 +1,7 @@
 Kurounin:Pagination-Blaze
 =================
 
-This package provides a bootstrap 3 paginator Blaze template to be used with the [kurounin:pagination](https://atmospherejs.com/kurounin/pagination) package.
+This package provides a bootstrap 3 and 4 paginator Blaze template to be used with the [kurounin:pagination](https://atmospherejs.com/kurounin/pagination) package. It can also be configured to use custom styling.
 
 # Usage
 In the template helpers you need to define a helper to return the pagination instance and you can define an optional callback which should be called right before changing the page
@@ -21,7 +21,12 @@ Template.myList.helpers({
 
 In the template html file add the paginator
 ```html
-{{> defaultBootstrapPaginator pagination=templatePagination limit=10 containerClass="text-center" onClick=clickEvent}}
+{{> defaultBootstrapPaginator pagination=templatePagination onClick=clickEvent limit=10 containerClass="text-center"}}
+```
+
+For Semantic UI, use the following configuration
+```html
+{{> defaultBootstrapPaginator pagination=templatePagination onClick=clickEvent limit=10 paginationClass="ui pagination menu" itemClass="item" wrapLinks=false}}
 ```
 
 Available template parameters are:
