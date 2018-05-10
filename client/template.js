@@ -50,6 +50,9 @@ Template.defaultBootstrapPaginator.helpers({
     getPaginationClass: function () {
         return this.paginationClass || "pagination";
     },
+    getItemClass: function () {
+        return this.itemClass || "page-item";
+    },
     shouldWrapLinks: function () {
         return this.wrapLinks !== false;
     },
@@ -81,8 +84,10 @@ Template.defaultBootstrapPaginator.helpers({
 
 Template.defaultBootstrapPaginator.events({
     'click .page-link': function(e, templateInstance){
-        templateInstance.runOnClick(e, this.valueOf());
-        templateInstance.data.pagination.currentPage(this.valueOf());
+        if (typeof this.valueOf() === 'number') {
+            templateInstance.runOnClick(e, this.valueOf());
+            templateInstance.data.pagination.currentPage(this.valueOf());
+        }
     },
     'click .previous-page': function(e, templateInstance){
         templateInstance.runOnClick(e, templateInstance.data.pagination.currentPage() - 1);

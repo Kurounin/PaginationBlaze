@@ -1,7 +1,7 @@
 Package.describe({
     "name": "kurounin:pagination-blaze",
     "summary": "Blaze paginator template for kurounin:pagination package.",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "git": "https://github.com/Kurounin/PaginationBlaze.git"
 });
 
@@ -10,7 +10,7 @@ Package.onUse(function (api) {
     api.use([
         "meteor-base",
         "underscore",
-        "kurounin:pagination@1.0.24"
+        "kurounin:pagination@1.0.25"
     ]);
 
     api.use([
